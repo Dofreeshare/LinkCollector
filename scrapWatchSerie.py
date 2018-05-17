@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException 
 import time
 import re
-import openpyxl
+import sys
 import os 
 
 def ProcessLinkData(fd, Link_data):
@@ -25,10 +25,8 @@ else:
     firefox_profile = webdriver.FirefoxProfile()
     firefox_profile.set_preference("browser.privatebrowsing.autostart", True)
 
-    browser = webdriver.Firefox(firefox_profile=firefox_profile)
-    #browser.get('https://dwatchseries.to/episode/13_reasons_why_s1_e1.html')
-    browser.get('https://dwatchseries.to/episode/malcolm_in_the_middle_s1_e1.html')
-    #browser.get('file:///D:/Scripts/Python/watchSerie/Watch%20Online%20Young%20Sheldon%20Season%201%20Episode%201%20-%20Pilot%20-%20Watch%20Series.html')
+    browser = webdriver.Firefox(firefox_profile=firefox_profile, executable_path="D:\Portables\geckodriver")
+    browser.get(sys.argv[1])
 
     break_loop = False
 
